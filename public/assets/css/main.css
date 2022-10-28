@@ -2394,18 +2394,6 @@ section {
   font-size: 14px;
 }
 
-/* Krishna */
-
-.slot-selection{
-  padding-top: 10px;
-  color: var(--color-secondary);
-  transition: 0.3s;
-}
-
-.slot-selection:hover {
-  color: var(--color-default);
-}
-
 .blog .sidebar .recent-posts .post-item {
   display: flex;
 }
@@ -2453,7 +2441,7 @@ section {
   display: inline-block;
 }
 
-.blog .sidebar .tags ul a {
+.blog .sidebar .tags ul button {
   color: #838893;
   font-size: 14px;
   padding: 6px 14px;
@@ -2463,13 +2451,13 @@ section {
   transition: 0.3s;
 }
 
-.blog .sidebar .tags ul a:hover {
+.blog .sidebar .tags ul button:hover {
   color: var(--color-secondary);
   border: 1px solid var(--color-primary);
   background: var(--color-primary);
 }
 
-.blog .sidebar .tags ul a span {
+.blog .sidebar .tags ul button span {
   padding-left: 5px;
   color: rgba(131, 136, 147, 0.8);
   font-size: 14px;

@@ -43,7 +43,7 @@ app.get("/", function (req, res) {
     connections.query(mysqlQuery, function (err, result, fields) {
         if (err) throw err;
         result = JSON.parse(JSON.stringify(result));
-        res.render("home",{
+        res.render("home", {
             data: result
         });
     });
@@ -54,21 +54,26 @@ app.get("/movies", function (req, res) {
     connections.query(mysqlQuery, function (err, result, fields) {
         if (err) throw err;
         result = JSON.parse(JSON.stringify(result));
-        res.render("movies",{
+        res.render("movies", {
             data: result
         });
     });
 });
 
 app.get("/book-ticket/:movieNo", function (req, res) {
-    mysqlQuery = "SELECT * FROM movie where MovieNo="+req.params.movieNo
+    mysqlQuery = "select movie_booking.show.Time,movie.MovieName,movie.Language,movie.Duration,movie.Img,movie.Description,theater.TheaterName from movie_booking.show, movie, theater where movie_booking.show.MovieNo = movie.MovieNo  and movie_booking.show.TheaterNo = theater.TheaterNo and movie.MovieNo ="+req.params.movieNo
     connections.query(mysqlQuery, function (err, result, fields) {
         if (err) throw err;
         result = JSON.parse(JSON.stringify(result));
-        res.render("book-ticket",{
+        console.log(result);
+        res.render("book-ticket", {
             data: result
         });
     });
+});
+
+app.post("/book-ticket", function (req, res) {
+    console.log(req.body);
 });
 
 app.listen(process.env.PORT || 3000, function () {
