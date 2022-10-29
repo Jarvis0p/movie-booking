@@ -3,96 +3,101 @@
 
 <main id="main">
 
-    <!-- ======= Breadcrumbs ======= -->
-    <div class="breadcrumbs d-flex align-items-center" style="background-image: url('/assets/img/breadcrumbs-bg.jpg');">
-      <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
+  <!-- ======= Breadcrumbs ======= -->
+  <div class="breadcrumbs d-flex align-items-center" style="background-image: url('/assets/img/breadcrumbs-bg.jpg');">
+    <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
 
-        <h2>Book-Ticket</h2>
-        <ol>
-          <li><a href="/">Home</a></li>
-          <li><a href="/movies"></a>movies</li>
-          <li>select slot</li>
-        </ol>
+      <h2>Book-Ticket</h2>
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/movies"></a>movies</li>
+        <li>select slot</li>
+      </ol>
 
-      </div>
-    </div><!-- End Breadcrumbs -->
+    </div>
+  </div><!-- End Breadcrumbs -->
 
-    <!-- ======= Blog Details Section ======= -->
-    <section id="blog" class="blog">
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
+  <!-- ======= Blog Details Section ======= -->
+  <section id="blog" class="blog">
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-        <div class="">
+      <div class="">
 
 
-            <article class="blog-details">
+        <article class="blog-details">
 
-              <div class="post-img">
-                <img src="<%= data[0].Img %>" alt="" class="img-fluid">
-              </div>
-
-              <h2 class="title"><%= data[0].MovieName %></h2>
-
-              <div class="meta-top">
-                <ul>
-                  <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-details.html">John Doe</a></li>
-                  <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-details.html"><time datetime="2020-01-01">Jan 1, 2022</time></a></li>
-                  <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-details.html">12 Comments</a></li>
-                </ul>
-              </div><!-- End meta top -->
-
+          <div class="post-img">
+            <img src="<%= data[0].Img %>" alt="" class="img-fluid">
           </div>
 
-          <div class="">
+          <h2 class="title"><%= data[0].MovieName %></h2>
 
-            <div class="sidebar">
+          <div class="meta-top">
+            <ul>
+              <li class="d-flex align-items-center"><i class="fa-solid fa-language"></i> <a
+                  href="blog-details.html"><%= data[0].Language %></a></li>
+              <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-details.html"><time
+                    datetime="2020-01-01"><%= data[0].Duration %></time></a></li>
+              <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-details.html">12
+                  Comments</a></li>
+            </ul>
+          </div><!-- End meta top -->
 
-              
-              <form action="/book-ticket" method="post">
-              <div class="sidebar-item categories">
-                <h3 class="sidebar-title">Date</h3>
-                <ul class="mt-3">
-                  <input type="radio" name="date" value="29 Oct">29 Oct <span>Fri</span>
-                  <input type="radio" name="date" value="30 Oct">30 Oct <span>Sat</span>
-                  <input type="radio" name="date" value="31 Oct">31 Oct <span>Sun</span>
-                </ul>
-              </div><!-- End sidebar categories-->
+      </div>
 
-              <div class="sidebar-item recent-posts">
-                <h3 class="sidebar-title">Select Theater</h3>
+      <div class="">
 
-                <div class="mt-3">
+        <div class="sidebar">
+
+
+          <form action="/book-ticket" method="post">
+            <div class="sidebar-item categories">
+              <h3 class="sidebar-title">Date</h3>
+              <ul class="mt-3">
+                <input type="radio" name="date" value="29 Oct" required><label id="today-date"> 29 Oct Fri</label>
+                <input type="radio" name="date" value="30 Oct"><label id="tom-date">30 Oct </label>
+                <input type="radio" name="date" value="31 Oct"><label id="dat-date">31 Oct </label>
+              </ul>
+            </div><!-- End sidebar categories-->
+
+            <div class="sidebar-item recent-posts">
+              <h3 class="sidebar-title">Select Theater</h3>
+
+              <div class="mt-3">
 
                 <% data.forEach(function(element){ %>
-                  <hr>
-                  <div class="post-item">
-                    <img src="/assets/img/blog/blog-recent-5.jpg" alt="">
-                    <div>
-                      <div class="sidebar-item tags">
-                        <h3 class="sidebar-title"><%= element.TheaterName %></h3>
-                        <ul class="mt-3">
-                          <li><button type="submit" name="time" value="9:00 am"><%= element.Time %></button></li>
-                          <!-- <li><button type="submit" name="time" value="9:00 am">9:00 am</button></li>
+                <hr>
+                <div class="post-item">
+                  <img src="/assets/img/blog/blog-recent-5.jpg" alt="">
+                  <div>
+                    <div class="sidebar-item tags">
+                      <h3 class="sidebar-title"><%= element.TheaterName %></h3>
+                      <ul class="mt-3">
+                        <li><input type="radio" name="time" value="<%= element.Time %>" required><%= element.Time %></input></li>
+                        <li><input type="number" name="seats" ><label>Number of Seats</label></li>
+                        <li><button type="submit" name="theater" value="<%= element.TheaterName %>">Book</button></li></form>
+                        <!-- <li><button type="submit" name="time" value="9:00 am">9:00 am</button></li>
                           <li><button type="submit" name="time" value="9:00 am">9:00 am</button></li>
                           <li><button type="submit" name="time" value="9:00 am">9:00 am</button></li>
                           <li><button type="submit" name="time" value="9:00 am">9:00 am</button></li> -->
-                        </ul>
-                      </div><!-- End sidebar tags-->
-                    </div>
-                  </div><!-- End recent post item-->
-                  <%});%>
+                      </ul>
+                    </div><!-- End sidebar tags-->
+                  </div>
+                </div><!-- End recent post item-->
+                <%});%>
 
-                </div>
+              </div>
 
-              </div><!-- End sidebar recent posts-->
+            </div><!-- End sidebar recent posts-->
 
-            </div><!-- End Blog Sidebar -->
-
-          </div>
- 
+        </div><!-- End Blog Sidebar -->
 
       </div>
-    </section><!-- End Blog Details Section -->
 
-  </main><!-- End #main -->
+
+    </div>
+  </section><!-- End Blog Details Section -->
+
+</main><!-- End #main -->
 
 <%- include("partials/footer")%>

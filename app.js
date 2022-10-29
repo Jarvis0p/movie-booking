@@ -17,17 +17,18 @@ app.use(bodyParser.json());
 
 // mysql connection
 let options = {
-    host: 'localhost',
+    host: 'sql7.freemysqlhosting.net',
     port: '3306',
-    user: 'root',
-    password: 'root',
-    database: 'movie_booking'
+    user: 'sql7530125',
+    password: '4jqW1PkCiG',
+    database: 'sql7530125'
 };
 
 var connections = mysql.createConnection(options);
 
 connections.connect(function (err) {
     if (err) throw err;
+    console.log("connected");
 });
 
 

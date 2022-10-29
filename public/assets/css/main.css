@@ -2620,6 +2620,12 @@ section {
   color: #fff;
 }
 
+.footer .footer-content .social-links{
+  width: 180px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
 .footer .footer-content .social-links a {
   font-size: 18px;
   display: inline-block;
