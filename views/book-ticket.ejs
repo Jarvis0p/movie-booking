@@ -50,7 +50,7 @@
         <div class="sidebar">
 
 
-          <form action="/book-ticket" method="post">
+          <form id="#controlPanel" method="get" action="">
             <div class="sidebar-item categories">
               <h3 class="sidebar-title">Date</h3>
               <ul class="mt-3">
@@ -73,22 +73,24 @@
                     <div class="sidebar-item tags">
                       <h3 class="sidebar-title"><%= element.TheaterName %></h3>
                       <ul class="mt-3">
-                        <li><input type="radio" name="time" value="<%= element.Time %>" required><%= element.Time %></input></li>
-                        <li><input type="number" name="seats" ><label>Number of Seats</label></li>
-                        <li><button type="submit" name="theater" value="<%= element.TheaterName %>">Book</button></li></form>
+                        <li><input type=hidden name=theater value="<%= element.TheaterName %>"></li>
+                        <li><button type="submit" name="time"
+                            value="<%= element.Time %>"><%= element.Time %></button></li>
                         <!-- <li><button type="submit" name="time" value="9:00 am">9:00 am</button></li>
                           <li><button type="submit" name="time" value="9:00 am">9:00 am</button></li>
                           <li><button type="submit" name="time" value="9:00 am">9:00 am</button></li>
                           <li><button type="submit" name="time" value="9:00 am">9:00 am</button></li> -->
                       </ul>
                     </div><!-- End sidebar tags-->
+
                   </div>
                 </div><!-- End recent post item-->
+
                 <%});%>
-
               </div>
-
             </div><!-- End sidebar recent posts-->
+
+          </form>
 
         </div><!-- End Blog Sidebar -->
 

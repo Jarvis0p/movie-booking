@@ -16,6 +16,9 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 
 // mysql connection
+// mysql -h sql7.freemysqlhosting.net -u sql7530125 -p sql7530125
+
+
 let options = {
     host: 'sql7.freemysqlhosting.net',
     port: '3306',
@@ -70,6 +73,15 @@ app.get("/book-ticket/:movieNo", function (req, res) {
         res.render("book-ticket", {
             data: result
         });
+    });
+});
+
+
+app.get("/book/:theater/:date/:time",function(req,res){
+    console.log(req.params.theater,req.params.date,req.params.time);
+    result
+    res.render("confirmation",{
+
     });
 });
 

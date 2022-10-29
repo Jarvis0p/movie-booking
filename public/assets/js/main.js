@@ -212,8 +212,21 @@ const monthNames = ["Jan", "Febr", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Se
 var d = new Date();
 document.getElementById('today-date').innerHTML = d.getDate() + monthNames[d.getMonth()];
 
-d.setDate(tomorrow.getDate()+1);
+d.setDate(d.getDate()+1);
 document.getElementById('tom-date').innerHTML = d.getDate()    + monthNames[d.getMonth()];
 
-d.setDate(tomorrow.getDate()+2);
+d.setDate(d.getDate()+2);
 document.getElementById('dat-date').innerHTML = d.getDate() + monthNames[d.getMonth()];
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  document.getElementById("#controlPanel").addEventListener("submit", function(event) {
+    event.preventDefault();
+    var theater = document.getElementsByName('theater')[0].value;
+    var date = document.getElementsByName('date')[0].value;
+    var time = document.getElementsByName('time')[0].value;
+    var action = "/book/".concat(theater).concat("/").concat(date).concat("/").concat(time);
+    document.getElementById("#controlPanel").action = action;
+    document.getElementById("#controlPanel").submit();
+  });
+});
