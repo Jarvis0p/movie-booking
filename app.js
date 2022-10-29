@@ -62,7 +62,7 @@ app.get("/movies", function (req, res) {
 });
 
 app.get("/book-ticket/:movieNo", function (req, res) {
-    mysqlQuery = "select movie_booking.show.Time,movie.MovieName,movie.Language,movie.Duration,movie.Img,movie.Description,theater.TheaterName from movie_booking.show, movie, theater where movie_booking.show.MovieNo = movie.MovieNo  and movie_booking.show.TheaterNo = theater.TheaterNo and movie.MovieNo ="+req.params.movieNo
+    mysqlQuery = "select show.Time,movie.MovieName,movie.Language,movie.Duration,movie.Img,movie.Description,theater.TheaterName from show, movie, theater where show.MovieNo = movie.MovieNo  and show.TheaterNo = theater.TheaterNo and movie.MovieNo ="+req.params.movieNo
     connections.query(mysqlQuery, function (err, result, fields) {
         if (err) throw err;
         result = JSON.parse(JSON.stringify(result));
