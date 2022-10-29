@@ -24,24 +24,24 @@
                 <div class="col-lg-6">
                     <div class="info-item  d-flex flex-column justify-content-center align-items-center">
                         <i class="bi bi-map"></i>
-                        <h3><%=data[0].movie%></h3>
-                        <p>A108 Adam Street, New York, NY 535022</p>
+                        <h3><%=data[0].MovieName%></h3>
+                        <p>Movie</p>
                     </div>
                 </div><!-- End Info Item -->
 
                 <div class="col-lg-3 col-md-6">
                     <div class="info-item d-flex flex-column justify-content-center align-items-center">
                         <i class="bi bi-envelope"></i>
-                        <h3><%=data[0].theater%></h3>
-                        <p>contact@example.com</p>
+                        <h3><%=data[0].TheaterName%></h3>
+                        <p>Theater</p>
                     </div>
                 </div><!-- End Info Item -->
 
                 <div class="col-lg-3 col-md-6">
                     <div class="info-item  d-flex flex-column justify-content-center align-items-center">
                         <i class="bi bi-telephone"></i>
-                        <h3><%=data[0].date%></h3>
-                        <p><%=data[0].time%></p>
+                        <h3><%=date%></h3>
+                        <p><%=data[0].Time%></p>
                     </div>
                 </div><!-- End Info Item -->
 
@@ -49,13 +49,11 @@
 
             <div class="row gy-4 mt-1">
                 <div class>
-                    <form id="#details" method="post" action="" class="php-email-form">
+                    <form action="/details" method="post"  class="php-email-form">
                         <div class="row gy-4">
                             <div class="col-lg-6 form-group">
-                                <input type=hidden name="movie" value="<%= element.MovieName %>">
-                                <input type=hidden name="movie" value="<%= element.MovieName %>">
-                                <input type=hidden name="movie" value="<%= element.MovieName %>">
-                                <input type=hidden name="movie" value="<%= element.MovieName %>">
+                                <input type="hidden" name="SlotNo" value="<%= data[0].SlotNo %>">
+                                <input type="hidden" name="date" value="<%= date %>">
                                 <input type="text" name="name" class="form-control" id="name" placeholder="Your Name"
                                     required>
                             </div>

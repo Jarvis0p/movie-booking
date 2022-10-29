@@ -1,0 +1,43 @@
+<%- include("partials/header")%>
+
+
+
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs d-flex align-items-center" style="background-image: url('assets/img/breadcrumbs-bg.jpg');">
+        <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
+
+            <h2>Thank You</h2>
+            <ol>
+                <li><a href="index.html">Home</a></li>
+                <li>Thank you</li>
+            </ol>
+
+        </div>
+    </div><!-- End Breadcrumbs -->
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+        <div class="container" data-aos="fade-up">
+            <div class="row position-relative">
+                <div class="">
+                    <h2>Thank You <%= data[0].Name%></h2>
+                    <div class="our-story">
+                        <h4>Your Booking number is <%= data[0].BookingNo%></h4>
+                        <p>(Keep this for future reference)</p>
+                        <h3>Your Ticket has been sent on your email</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End About Section -->
+
+   
+
+    
+</main><!-- End #main -->
+
+
+<%- include("partials/footer")%>
