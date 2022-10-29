@@ -215,17 +215,18 @@ document.getElementById('today-date').innerHTML = d.getDate() + monthNames[d.get
 d.setDate(d.getDate()+1);
 document.getElementById('tom-date').innerHTML = d.getDate()    + monthNames[d.getMonth()];
 
-d.setDate(d.getDate()+2);
+d.setDate(d.getDate()+1);
 document.getElementById('dat-date').innerHTML = d.getDate() + monthNames[d.getMonth()];
 
 
 document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("#controlPanel").addEventListener("submit", function(event) {
     event.preventDefault();
+    var movie = document.getElementsByName('movie')[0].value;
     var theater = document.getElementsByName('theater')[0].value;
     var date = document.getElementsByName('date')[0].value;
     var time = document.getElementsByName('time')[0].value;
-    var action = "/book/".concat(theater).concat("/").concat(date).concat("/").concat(time);
+    var action = "/book/".concat(movie).concat("/").concat(theater).concat("/").concat(date).concat("/").concat(time);
     document.getElementById("#controlPanel").action = action;
     document.getElementById("#controlPanel").submit();
   });
